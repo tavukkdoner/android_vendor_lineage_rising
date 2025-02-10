@@ -1,6 +1,9 @@
 # Allow vendor/extra to override any property by setting it first
 $(call inherit-product-if-exists, vendor/extra/product.mk)
 include vendor/rising/config/rising.mk
+ifeq ($(WITH_PIXEL_OVERLAYS),true)
+$(call inherit-product-if-exists, vendor/pixeloverlays/config.mk)
+endif
 
 # Allow vendor prebuilt repos to exclude themselves from bp scanning
 -include $(sort $(wildcard vendor/*/*/exclude-bp.mk))
