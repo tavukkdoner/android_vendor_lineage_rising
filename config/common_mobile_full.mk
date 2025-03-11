@@ -9,8 +9,12 @@ PRODUCT_PACKAGES += \
     Etar \
     Profiles \
     Recorder \
-    Seedvault \
-    Jelly
+    Seedvault
+
+ifneq ($(WITH_GMS),true)
+PRODUCT_PACKAGES += \
+  Jelly
+endif
 
 ifeq ($(WITH_GMS),false)
 PRODUCT_PACKAGES += \
