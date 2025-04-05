@@ -18,6 +18,11 @@ DONT_DEXPREOPT_PREBUILTS := true
 PRODUCT_BROKEN_VERIFY_USES_LIBRARIES := true
 endif
 
+# Bypass Charge
+BYPASS_CHARGE_SUPPORTED ?= false
+PRODUCT_SYSTEM_PROPERTIES += \
+    persist.sys.battery_bypass_supported=$(BYPASS_CHARGE_SUPPORTED)
+
 PRODUCT_BRAND ?= risingOS
 
 ifeq ($(PRODUCT_GMS_CLIENTID_BASE),)
