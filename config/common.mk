@@ -231,6 +231,9 @@ PRODUCT_ARTIFACT_PATH_REQUIREMENT_ALLOWED_LIST += \
     system/bin/setcap
 
 ifeq ($(TARGET_SUPPORTS_64_BIT_APPS),true)
+ifeq ($(TARGET_SUPPORTS_GFU),true)
+$(call inherit-product-if-exists, vendor/google/faceunlock/config.mk)
+else
 PRODUCT_PACKAGES += \
     FaceUnlock
 
@@ -239,6 +242,7 @@ PRODUCT_SYSTEM_EXT_PROPERTIES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.biometrics.face.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/android.hardware.biometrics.face.xml
+endif
 endif
 
 # Filesystems tools
