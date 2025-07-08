@@ -218,16 +218,9 @@ PRODUCT_PRODUCT_PROPERTIES += \
 
 # Extra tools in Lineage
 PRODUCT_PACKAGES += \
-    bash \
     curl \
     getcap \
-    htop \
-    nano \
-    setcap \
-    vim
-
-PRODUCT_PACKAGES += \
-    nano_recovery
+    setcap
 
 # LMOFreeForm
 PRODUCT_PACKAGES += \
@@ -283,10 +276,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     vendor/lineage/prebuilt/common/etc/init/init.openssh.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.openssh.rc
-
-# rsync
-PRODUCT_PACKAGES += \
-    rsync
 
 ifeq ($(WITH_GMS),false)
 # Storage manager
