@@ -684,12 +684,6 @@ endef
 
 endif # FULL_KERNEL_BUILD
 
-ifeq ($(NEEDS_KERNEL_COPY),true)
-$(INSTALLED_KERNEL_TARGET): $(KERNEL_BIN)
-	$(transform-prebuilt-to-target)
-	$(if $(filter true,$(FULL_KERNEL_BUILD)),\
-		$(call append-dtbs-to-kernel-image,$(KERNEL_OUT),$@))
-endif
 
 .PHONY: kernel
 kernel: $(INSTALLED_KERNEL_TARGET)
